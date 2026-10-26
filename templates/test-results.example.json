@@ -1,0 +1,23 @@
+{
+  "scope": "demo-api: Node.js runtime patch from 24.22.0 to 24.22.1",
+  "runtime": {
+    "web": {
+      "version": "24.22.1",
+      "source": "observed",
+      "evidence": {"command": "docker run --rm registry.example/demo-api:rc1 node -v", "exit_code": 0, "output_excerpt": "v24.22.1"}
+    },
+    "ci": {"version": "24", "source": "declared"}
+  },
+  "checks": [
+    {"id": "npm-ci", "status": "passed", "command": "npm ci", "exit_code": 0, "output_excerpt": "added 412 packages"},
+    {"id": "unit-tests", "status": "passed", "command": "npm test", "exit_code": 0, "output_excerpt": "Tests: 120 passed, 120 total"},
+    {"id": "npm-audit", "status": "passed", "command": "npm audit --omit=dev", "exit_code": 0, "output_excerpt": "found 0 vulnerabilities"},
+    {"id": "staging-smoke", "status": "blocked", "reason": "no access to staging environment"}
+  ],
+  "findings": [],
+  "claims": {"overall": "partially_verified"},
+  "limitations": [
+    "Staging smoke test was not run (no access).",
+    "Production runtime not observed; only the release-candidate image was checked."
+  ]
+}
