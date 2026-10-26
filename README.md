@@ -14,7 +14,6 @@ Ask your agent (Claude Code, Codex, Copilot, Cursor, Gemini CLI, OpenCode, ...) 
 
 It never deploys, never runs exploits, never sends malformed payloads, and never reports a test as passed unless it ran.
 
-> Inspired by the structure of [Ademking/php2shell-migration](https://github.com/Ademking/php2shell-migration). No code or text was copied.
 
 ## Quick start
 ```bash
